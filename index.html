@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ambrose Advisory — AI-Powered Business Advisory for UK Small Businesses</title>
+<meta name="description" content="AI-powered business advisory for UK small businesses in Southampton. 30 years of accounting expertise (KPMG-trained) combined with Claude AI automation. Free one-hour health check. English, Cantonese and Mandarin service.">
+</head>
+<body>
+<style>
+  :root{
+    --dark:#2B1D1A; --dark-card:#3A2A26; --terra:#B85042; --terra-tint:#F8ECEA;
+    --teal:#028090; --teal-tint:#E4F1F2; --ink:#2A2A2A; --muted:#6B6560;
+    --sand:#E7E8D1; --rose:#C9A99A; --fog:#BFB3AC; --grey-tint:#F4F1EE; --bg:#FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{font-family:"Segoe UI","Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.65}
+  .lang-zh{display:none}
+  html[data-lang="zh"] .lang-en{display:none}
+  html[data-lang="zh"] .lang-zh{display:block}
+  html[data-lang="zh"] span.lang-zh, html[data-lang="zh"] a.lang-zh{display:inline}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 1.4rem}
+
+  /* header */
+  header{background:var(--dark); color:#fff; position:sticky; top:0; z-index:10}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:.85rem 1.4rem; max-width:1080px; margin:0 auto}
+  .logo{font-weight:700; letter-spacing:.02em; color:var(--sand); font-size:1.05rem}
+  .logo .dot{color:var(--terra)}
+  #langBtn{background:none; border:1px solid var(--fog); color:var(--fog); border-radius:999px;
+    padding:.3rem .95rem; cursor:pointer; font-size:.85rem}
+  #langBtn:hover,#langBtn:focus{color:#fff; border-color:#fff; outline:none}
+
+  /* hero */
+  .hero{background:var(--dark); color:#fff; padding:4.5rem 0 4rem}
+  .hero h1{font-size:clamp(1.7rem,4.5vw,2.7rem); line-height:1.25; max-width:48rem}
+  .hero h1 .a{color:var(--sand)} .hero h1 .b{color:#fff}
+  .hero p.tag{color:var(--rose); font-style:italic; margin:1.2rem 0 2rem; font-size:1.1rem; max-width:44rem}
+  .cta{display:inline-block; background:var(--terra); color:#fff; text-decoration:none; font-weight:700;
+    padding:.85rem 1.7rem; border-radius:8px; font-size:1rem}
+  .cta:hover{background:#a04437}
+  .cta.ghost{background:transparent; border:1.5px solid var(--fog); font-weight:400; margin-left:.7rem}
+  .cta.ghost:hover{border-color:#fff; background:transparent}
+
+  /* stats strip */
+  .stats{background:var(--grey-tint); padding:2.2rem 0}
+  .stats .wrap{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.2rem}
+  .stat b{display:block; font-size:1.9rem; color:var(--terra); line-height:1.2}
+  .stat span{font-size:.85rem; color:var(--muted)}
+
+  section{padding:3.5rem 0}
+  h2{font-size:1.6rem; margin-bottom:.6rem}
+  .lede{color:var(--muted); max-width:46rem; margin-bottom:2rem}
+  .kicker{text-transform:uppercase; letter-spacing:.13em; font-size:.75rem; color:var(--terra); font-weight:700; margin-bottom:.4rem}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem}
+  .card{border-radius:12px; padding:1.6rem; background:var(--grey-tint)}
+  .card.teal{background:var(--teal-tint)} .card.terra{background:var(--terra-tint)}
+  .card h3{font-size:1.08rem; margin-bottom:.5rem}
+  .card p{font-size:.92rem; color:var(--muted)}
+  .card .num{width:38px; height:38px; border-radius:50%; background:var(--terra); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:700; margin-bottom:.9rem}
+
+  .sector{border-left:none}
+  .sector h3{color:var(--teal)}
+  .sector ul{margin:.6rem 0 0 1.1rem; font-size:.9rem; color:var(--ink)}
+  .sector li{margin-bottom:.3rem}
+
+  .about{background:var(--dark); color:#fff}
+  .about h2{color:var(--sand)}
+  .about p{color:#D8CFC9; max-width:46rem; margin-bottom:1rem}
+  .about .creds{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem}
+  .about .chip{border:1px solid #5a463f; border-radius:999px; padding:.35rem 1rem; font-size:.85rem; color:var(--fog)}
+
+  .contact{background:var(--teal-tint)}
+  .contact .box{display:flex; flex-wrap:wrap; gap:2rem; align-items:center; justify-content:space-between}
+  .contact .box p{max-width:34rem}
+  footer{background:var(--dark); color:var(--fog); font-size:.83rem; padding:1.6rem 0}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:.8rem; justify-content:space-between}
+  @media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+  section[id]{scroll-margin-top:4rem}
+
+  /* ---- mobile ---- */
+  @media (max-width:640px){
+    .nav{padding:.75rem 1rem}
+    .logo{font-size:.95rem}
+    .wrap{padding:0 1.1rem}
+    .hero{padding:2.8rem 0 2.6rem}
+    .hero p.tag{font-size:1rem; margin:1rem 0 1.6rem}
+    .cta{display:block; text-align:center; margin:0 0 .7rem}
+    .cta.ghost{margin-left:0}
+    .stats{padding:1.6rem 0}
+    .stats .wrap{gap:1rem}
+    .stat b{font-size:1.55rem}
+    section{padding:2.4rem 0}
+    h2{font-size:1.35rem}
+    .card{padding:1.25rem}
+    .contact .box{flex-direction:column; align-items:flex-start; gap:1.2rem}
+    .contact .cta{display:inline-block; margin:0}
+    footer .wrap{flex-direction:column; gap:.35rem}
+  }
+  /* ---- large desktop ---- */
+  @media (min-width:1400px){
+    .wrap{max-width:1180px}
+  }
+</style>
+
+<header>
+  <div class="nav">
+    <div class="logo">AMBROSE<span class="dot"> ·</span> ADVISORY</div>
+    <button id="langBtn" aria-label="Switch language">中文</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="lang-en">
+      <h1><span class="a">Your business, run on evidence.</span><br>
+        <span class="b">AI-powered advisory for UK small businesses.</span></h1>
+      <p class="tag">30 years of accounting expertise — KPMG-trained — combined with Claude AI automation, so you always know your cash, your margins and your next move.</p>
+      <a class="cta" href="mailto:ambrose.cheng.cpa@gmail.com?subject=Free%20Health%20Check">Book a free health check</a>
+      <a class="cta ghost" href="#how">How it works</a>
+    </div>
+    <div class="lang-zh">
+      <h1><span class="a">用數據經營你的生意。</span><br>
+        <span class="b">為英國中小企而設的 AI 顧問服務。</span></h1>
+      <p class="tag">30年會計專業（KPMG訓練）結合 Claude AI 自動化——讓你隨時清楚現金、利潤與下一步。</p>
+      <a class="cta" href="mailto:ambrose.cheng.cpa@gmail.com?subject=免費健康診斷">預約免費健康診斷</a>
+      <a class="cta ghost" href="#how">了解流程</a>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat lang-en"><b>£26bn</b><span>owed to UK small firms in unpaid invoices — we help you collect faster</span></div>
+    <div class="stat lang-en"><b>50,000</b><span>UK businesses close yearly from cash-flow failure — most were profitable on paper</span></div>
+    <div class="stat lang-en"><b>10+ hrs</b><span>a typical owner's weekly admin burden — we automate it back to you</span></div>
+    <div class="stat lang-zh"><b>£260億</b><span>英國小企業被拖欠的貨款總額——我們助你更快收款</span></div>
+    <div class="stat lang-zh"><b>50,000間</b><span>英國企業每年因現金流斷裂結業——多數賬面仍有盈利</span></div>
+    <div class="stat lang-zh"><b>10小時+</b><span>老闆每週消耗在行政上的時間——我們用自動化幫你取回</span></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="lang-en">
+      <div class="kicker">What we do</div>
+      <h2>Three things, done properly</h2>
+      <p class="lede">We set up AI-powered systems on your own accounts — you own everything, we build and train.</p>
+    </div>
+    <div class="lang-zh">
+      <div class="kicker">服務範圍</div>
+      <h2>三件事，做到最好</h2>
+      <p class="lede">我們在你自己的系統上建立 AI 自動化——一切屬於你，我們負責搭建與培訓。</p>
+    </div>
+    <div class="cards">
+      <div class="card terra">
+        <div class="lang-en"><h3>Get paid faster</h3>
+        <p>Automated, polite payment chasing matched to each customer's history; a who-owes-you dashboard; debtor days that shrink and stay shrunk.</p></div>
+        <div class="lang-zh"><h3>更快收款</h3>
+        <p>按每位客戶的付款紀錄自動發出得體的催款提醒；欠款一目了然；收款期持續縮短。</p></div>
+      </div>
+      <div class="card teal">
+        <div class="lang-en"><h3>See your cash ahead</h3>
+        <p>A 30/60/90-day cash-flow view with tax set-asides built in; month-end closed in hours; every income stream reconciled with an accountant's oversight.</p></div>
+        <div class="lang-zh"><h3>預見現金流</h3>
+        <p>30/60/90日現金流預測，稅款預留一併計算；月結數小時完成；每條收入來源都經會計師監督核對。</p></div>
+      </div>
+      <div class="card">
+        <div class="lang-en"><h3>Take your time back</h3>
+        <p>A one-page weekly briefing of cash, sales and warning signs; routine paperwork drafts itself; you approve instead of type.</p></div>
+        <div class="lang-zh"><h3>取回時間</h3>
+        <p>每週一頁經營簡報：現金、銷售與警號；例行文書自動起草；你只需審批，不用再打字。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--grey-tint)">
+  <div class="wrap">
+    <div class="lang-en">
+      <div class="kicker">Who we serve</div>
+      <h2>Built for essential businesses</h2>
+      <p class="lede">We specialise where the pains are sharpest and demand never stops.</p>
+    </div>
+    <div class="lang-zh">
+      <div class="kicker">服務對象</div>
+      <h2>專注民生必需行業</h2>
+      <p class="lede">我們深耕痛點最尖銳、需求不受經濟周期影響的行業。</p>
+    </div>
+    <div class="cards">
+      <div class="card sector" style="background:#fff">
+        <div class="lang-en"><h3>Dental & healthcare practices</h3>
+          <ul>
+            <li>NHS UDA run-rate tracking — see clawback risk months early</li>
+            <li>Plan-provider &amp; insurer income, fully reconciled</li>
+            <li>Chair utilisation and no-show analysis</li>
+          </ul></div>
+        <div class="lang-zh"><h3>牙科及醫療診所</h3>
+          <ul>
+            <li>NHS UDA 進度追蹤——提早數月察覺 clawback 風險</li>
+            <li>保險及月供計劃收入全面核對</li>
+            <li>診椅使用率與失約分析</li>
+          </ul></div>
+      </div>
+      <div class="card sector" style="background:#fff">
+        <div class="lang-en"><h3>Plumbing, heating & electrical</h3>
+          <ul>
+            <li>Automated payment chasing in your own voice</li>
+            <li>True job costing — know which work actually pays</li>
+            <li>Quotes out same-day; evenings returned</li>
+          </ul></div>
+        <div class="lang-zh"><h3>水電暖氣工程</h3>
+          <ul>
+            <li>以你的語氣自動催收欠款</li>
+            <li>真實工程成本核算——知道哪類工作真正賺錢</li>
+            <li>報價當日發出，晚上時間還給你</li>
+          </ul></div>
+      </div>
+      <div class="card sector" style="background:#fff">
+        <div class="lang-en"><h3>Other small businesses</h3>
+          <ul>
+            <li>Restaurants, retail, services — the toolkit adapts</li>
+            <li>粵語/普通話服務 for Chinese-owned UK businesses</li>
+            <li>Start with the same free health check</li>
+          </ul></div>
+        <div class="lang-zh"><h3>其他中小企</h3>
+          <ul>
+            <li>餐飲、零售、服務業——方案靈活適配</li>
+            <li>以粵語/普通話服務英國華人企業</li>
+            <li>同樣由免費健康診斷開始</li>
+          </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="lang-en">
+      <div class="kicker">How it works</div>
+      <h2>Start small — three stages</h2>
+    </div>
+    <div class="lang-zh">
+      <div class="kicker">合作流程</div>
+      <h2>由小開始——三個階段</h2>
+    </div>
+    <div class="cards" style="margin-top:1.6rem">
+      <div class="card">
+        <div class="num">1</div>
+        <div class="lang-en"><h3>Free health check</h3>
+        <p>One hour at your business. Five traffic-light scores, your three biggest frustrations heard, and a live AI demonstration on your real data. Written results within 24 hours.</p></div>
+        <div class="lang-zh"><h3>免費健康診斷</h3>
+        <p>一小時上門。五項紅綠燈評分、聆聽你最頭痛的三件事、即場以你的真實數據示範 AI 分析。24小時內收到書面結果。</p></div>
+      </div>
+      <div class="card">
+        <div class="num">2</div>
+        <div class="lang-en"><h3>Quick implementation</h3>
+        <p>In 2–4 weeks we connect your systems and fix your most painful area. Fixed price agreed up front — no hourly rates, no open-ended fees.</p></div>
+        <div class="lang-zh"><h3>快速實施</h3>
+        <p>2–4星期內接通你的系統，解決最痛的一項。費用預先議定——不設時薪，沒有無底洞式收費。</p></div>
+      </div>
+      <div class="card">
+        <div class="num">3</div>
+        <div class="lang-en"><h3>Monthly operating partner</h3>
+        <p>A weekly briefing, monthly close and review — like a finance director and operations manager, for a fraction of the cost.</p></div>
+        <div class="lang-zh"><h3>每月營運伙伴</h3>
+        <p>每週簡報、每月月結與檢討——如同聘請財務總監加營運經理，成本只是零頭。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="lang-en">
+      <div class="kicker" style="color:var(--rose)">About</div>
+      <h2>An accountant first. AI second.</h2>
+      <p>Ambrose Advisory is run by Ambrose Cheng — CPA with 30 years of accounting experience, trained at KPMG. The AI does the heavy lifting; a qualified accountant decides what matters and stands behind every number.</p>
+      <p>You deal with the same person throughout: the one who visits your business, builds your systems, and answers the phone.</p>
+    </div>
+    <div class="lang-zh">
+      <div class="kicker" style="color:var(--rose)">關於我們</div>
+      <h2>先是會計師，才是 AI。</h2>
+      <p>Ambrose Advisory 由 Ambrose Cheng 主理——執業會計師，30年會計經驗，KPMG 訓練出身。AI 負責繁重工作；持牌會計師判斷輕重，為每個數字負責。</p>
+      <p>由始至終同一個人服務你：上門的是他，建系統的是他，接電話的也是他。</p>
+    </div>
+    <div class="creds">
+      <span class="chip lang-en">CPA (Hong Kong)</span><span class="chip lang-zh">香港執業會計師</span>
+      <span class="chip lang-en">KPMG-trained</span><span class="chip lang-zh">KPMG 訓練</span>
+      <span class="chip lang-en">30 years in practice</span><span class="chip lang-zh">30年實務經驗</span>
+      <span class="chip">English · 廣東話 · 普通話</span>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap box">
+    <div class="lang-en">
+      <h2>Ready when you are</h2>
+      <p>The health check is free, takes one hour, and comes with no obligation. If everything scores green, we'll say so and shake your hand.</p>
+    </div>
+    <div class="lang-zh">
+      <h2>隨時候教</h2>
+      <p>健康診斷免費、只需一小時、絕無附帶條件。若五項全綠，我們會如實告知，與你握手道賀。</p>
+    </div>
+    <div>
+      <a class="cta lang-en" href="mailto:ambrose.cheng.cpa@gmail.com?subject=Free%20Health%20Check">Email Ambrose</a>
+      <a class="cta lang-zh" href="mailto:ambrose.cheng.cpa@gmail.com?subject=免費健康診斷">電郵聯絡</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ambrose Advisory · Southampton, United Kingdom</span>
+    <span>ambrose.cheng.cpa@gmail.com</span>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('langBtn');
+  btn.addEventListener('click', () => {
+    const html = document.documentElement;
+    const zh = html.getAttribute('data-lang') === 'zh';
+    html.setAttribute('data-lang', zh ? 'en' : 'zh');
+    btn.textContent = zh ? '中文' : 'EN';
+  });
+</script>
+
+</body>
+</html>
